@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NerdCore · Ask the classics</title>
+  <meta name="description" content="Ask Marcus Aurelius, Epictetus, Aristotle, Laozi, Sun Tzu and Adam Smith anything. Every answer cites the page." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect x=%225%22 y=%224%22 width=%225%22 height=%2224%22 rx=%221%22 fill=%22%23c08552%22/><rect x=%2212%22 y=%227%22 width=%225%22 height=%2221%22 rx=%221%22 fill=%22%235b7c99%22/><rect x=%2219%22 y=%225%22 width=%225%22 height=%2223%22 rx=%221%22 transform=%22rotate(8 21 16)%22 fill=%22%236b8f71%22/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow" aria-hidden="true"></div>
+
+  <aside id="sidebar">
+    <a class="brand" href="/"><span class="spines"><i></i><i></i><i></i></span>NerdCore</a>
+    <button id="new-chat" class="btn-new">+ New conversation</button>
+    <input id="hist-search" type="search" placeholder="Search your conversations" />
+    <nav id="history" aria-label="Conversations"></nav>
+    <p class="side-foot" id="stats"></p>
+  </aside>
+
+  <main>
+    <button id="menu" class="menu" aria-label="Conversations">☰</button>
+
+    <section id="welcome">
+      <p class="eyebrow">Seven books · 2,500 years · one question at a time</p>
+      <h1>Ask the classics<br /><em>anything.</em></h1>
+      <p class="lede">Every answer is built from the books themselves and shows the page it came from, so you can read the original and judge for yourself.</p>
+      <div id="shelf" class="shelf" role="list"></div>
+      <div class="starters" id="starters"></div>
+    </section>
+
+    <section id="thread" hidden></section>
+
+    <form id="ask" autocomplete="off">
+      <div class="modes" role="radiogroup" aria-label="Where to look">
+        <button type="button" data-mode="library" class="on" title="Search all seven books">Whole library</button>
+        <button type="button" data-mode="thinkers" title="One passage from each author, side by side">Ask the thinkers</button>
+        <button type="button" data-mode="book" title="Only one book">One book <span id="book-label"></span></button>
+      </div>
+      <div class="bar">
+        <textarea id="q" rows="1" placeholder="How do I stay calm when things go wrong?" maxlength="500" required></textarea>
+        <button class="send" aria-label="Ask">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="hint" id="mode-hint">Searching all seven books.</p>
+    </form>
+  </main>
+
+  <dialog id="reader">
+    <header><div><b id="r-title"></b><span id="r-meta"></span></div><button id="r-close" aria-label="Close">×</button></header>
+    <article id="r-text"></article>
+    <footer><button id="r-prev">← Previous page</button><button id="r-next">Next page →</button></footer>
+  </dialog>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
